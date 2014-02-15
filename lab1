@@ -1,0 +1,38 @@
+ #У реченні всі слова починаються з різних букв. Надрукувати (якщо можна) слова речення
+ #в такому прядку, щоб остання буква кожного слова  #збігалася з першою буквою наступного слова.
+
+exSen="Julia  eeeeeb  adore  los   Beautiful  "
+sent = exSen.lower() # сделать все буквы маленькими
+
+sent = sent.split(" ")
+newSen=[]
+for i in sent:
+    if len(i) > 0 :
+        newSen.append(i) # delete probeli
+print newSen
+
+
+result=[] # list with new  sentence
+firstWorld=newSen[0]
+
+
+while len(newSen)>0:
+   # print firstWorld
+    fCh=  firstWorld[0:1]
+    lCh= firstWorld[-1:]
+   # print fCh, lCh
+    newSen.remove(firstWorld)
+    result.append(firstWorld)
+
+    for i in newSen:
+        if lCh == i[0:1]:
+           # print i
+            j=newSen.index(i)
+            firstWorld=newSen[j]
+            break
+        else:
+            firstWorld=newSen[0] ## Узнать!!!! на счет того что делать
+            #если больше нет слов подходящих            
+            
+
+print result
